@@ -1,0 +1,14 @@
+{
+  "moduleNameMapper": {
+    "\\.(css|less|scss)$": "<rootDir>/assetTransformer.js"
+  },
+  "transform": {
+    "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+  },
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/assetTransformer.js"
+  ],
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect"
+  ]
+}
