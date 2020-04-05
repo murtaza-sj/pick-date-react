@@ -16,11 +16,11 @@ It represents a whole new approach to play with dates based on the regex provide
 ## Get Started
 
 To install the package, simply run:
-```npm install react-date-selector```
+```npm install pick-date-react```
 
 ```js
 import React, { useState } from "react";
-import DatePicker from "react-date-selector";
+import DatePicker from "pick-date-react";
 
 const App = () => {
   const [value, setValue] = useState(new Date());
