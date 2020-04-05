@@ -1,4 +1,4 @@
-# react-date-selector
+# pick-date-react
 
 A date picker for your React applications, based on regular expression checks.
 

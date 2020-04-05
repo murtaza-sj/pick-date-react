@@ -1,5 +1,5 @@
 {
-  "name": "react-date-selector",
+  "name": "pick-date-react",
   "version": "1.0.0",
   "description": "A date picker for your React applications, based on Regular Expression checks.",
   "author": "Murtuza S. Jetpurwala",
@@ -17,7 +17,12 @@
     "react-selector",
     "react-date-selector",
     "react-day-selector",
-    "regex"
+    "regex",
+    "pick",
+    "pick-date",
+    "pick-date-react",
+    "pick-day",
+    "pick-day-react"
   ],
   "engines": {
     "react": ">=16.8.0"
