@@ -1,2 +1,6 @@
 DatePicker
 coverage
+webpack.config.js
+jest.config.json
+babel.config.js
+assetTransformer.js

@@ -1,8 +1,17 @@
 # react-date-selector
 
-A date picker for your React applications, based on Regex checks.
+A date picker for your React applications, based on regular expression checks.
 
-It represents a whole new approach to play with dates based on regex provided. It provides with pure JavaScript Date objects in return, and internally no other library is used.
+It represents a whole new approach to play with dates based on the regex provided. It provides with pure JavaScript Date objects in return, and internally no other library is used.
+
+## Features
+
+- Works on pattern matching, which means it will format and validate a date based on the regular expression provided.
+- Accordingly formats the date and returns a JavaScript date object.
+- If the regex does not match, it will always return false. 
+- Live typing - Your date will be validated while you type in the input box, if it matches the regular expression. This means that the Calendar will be updated automatically if it is valid. 
+- Theme - You can change the color of the Calendar. 
+- The Calendar could be used as a stand alone component, without the input box. 
 
 ## Get Started
 
