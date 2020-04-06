@@ -8,6 +8,10 @@ import {
   checkIfDateObject,
 } from "./helpers";
 
+/**
+ * @component
+ * @param {object} props - Includes the different props passed from where it is to be used.
+ */
 const DatePicker = (props) => {
   const {
     date,
@@ -28,6 +32,9 @@ const DatePicker = (props) => {
 
   const dateContainer = useRef(null);
 
+  /**
+   * @param {object} e - Event object, when a mousedown event is triggered.
+   */
   const handleOutsideClick = (e) => {
     if (dateContainer.current && !dateContainer.current.contains(e.target)) {
       setShowCalendar(false);
@@ -41,10 +48,16 @@ const DatePicker = (props) => {
     };
   }, []);
 
+  /**
+   * Called when input box is clicked.
+   */
   const handleOnClick = () => {
     setShowCalendar(true);
   };
 
+  /**
+   * Called to set the configuration object with format, regex and the separator to validate the date.
+   */
   const setConfig = () => {
     let currentFormat, regex, separator;
     if (config) {
@@ -59,6 +72,9 @@ const DatePicker = (props) => {
     return { currentFormat, regex, separator };
   };
 
+  /**
+   * @param {object} e - Event object passed when an onchange event is triggered while typing.
+   */
   const handleOnInputChange = (e) => {
     setValue(e.target.value);
     const { currentFormat, regex, separator } = setConfig();
@@ -77,12 +93,22 @@ const DatePicker = (props) => {
     }
   };
 
+  /**
+   * Called from the Calendar component after the date is set.
+   * @param {Date} date - Date object passed after clicking on an a tile in the Calendar.
+   * @param {Boolean} nextOrPrevious - Passed from the Calendar component to close the Calendar or no.
+   */
   const changeInputValue = (date, nextOrPrevious) => {
     setValue(date);
     setDateValue(date);
     !nextOrPrevious && setShowCalendar(false);
   };
 
+  /**
+   * Used to format date based on the regular expression provided, rendered on input field.
+   * @param {*} date - Value passed to format and show the date.
+   * @returns {string}
+   */
   const onFormat = (date) => {
     const { currentFormat, regex, separator } = setConfig();
     const splitDate = date.toString().split(" ");

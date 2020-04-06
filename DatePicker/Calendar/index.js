@@ -8,6 +8,10 @@ import {
   checkIfDateObject,
 } from "../helpers";
 
+/**
+ * @component
+ * @param {object} props
+ */
 const Calendar = (props) => {
   const {
     date,
@@ -64,6 +68,10 @@ const Calendar = (props) => {
     setSelectedDay(currentDate.getDate());
   }, [date]);
 
+  /**
+   * Called when a day tile is clicked on the Calendar.
+   * @param {*} date - The selected tile number.
+   */
   const handleOnClick = (date) => {
     changeInputValue && changeInputValue(new Date(year, month, date));
     typeof handleOnChange === "function" &&
@@ -71,6 +79,11 @@ const Calendar = (props) => {
     setSelectedDay(date);
   };
 
+  /**
+   * Called on next or previous, to set the state of date.
+   * @param {*} month - The next or previous month.
+   * @param {*} year - The next or previous year.
+   */
   const setDateState = (month, year) => {
     let date;
     if (month !== new Date(year, month, selectedDay).getMonth()) {
@@ -87,6 +100,9 @@ const Calendar = (props) => {
     changeInputValue && changeInputValue(date, true);
   };
 
+  /**
+   * Called when the next button (>) is clicked.
+   */
   const next = () => {
     const nextMonth = (month + 1) % 12;
     const nextYear = nextMonth === 0 ? year + 1 : year;
@@ -99,6 +115,9 @@ const Calendar = (props) => {
     }
   };
 
+  /**
+   * Called when the previous button (<) is clicked.
+   */
   const previous = () => {
     const previousMonth = (month + 11) % 12;
     const previousYear = previousMonth === 11 ? year - 1 : year;
@@ -112,6 +131,9 @@ const Calendar = (props) => {
     }
   };
 
+  /**
+   * This renders the Calendar.
+   */
   const createCalendar = () => {
     let rows = [],
       date = 1;
