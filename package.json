@@ -1,9 +1,14 @@
 {
   "name": "pick-date-react",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A date picker for your React applications, based on Regular Expression checks.",
   "author": "Murtuza S. Jetpurwala",
   "license": "MIT",
+  "homepage": "https://github.com/murtaza-sj/pick-date-react#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/murtaza-sj/pick-date-react.git"
+  },
   "keywords": [
     "react",
     "date",
