@@ -1,6 +1,6 @@
 {
   "name": "pick-date-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A date picker for your React applications, based on Regular Expression checks.",
   "author": "Murtuza S. Jetpurwala",
   "license": "MIT",

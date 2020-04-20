@@ -45,6 +45,7 @@ export default App;
 These are the props which can be passed in:
 
 - `date` - A JavaScript Date object, if not passed, the default value would be today's date. 
+- `placeholder` - Placeholder for input element.
 - `handleOnChange` - An onChange handler, to receive back the Date object.
 - `minDay` - The minimum date parameter, should be a JavaScript Date object.
 - `maxDay` - The maximum date parameter, should be a JavaScript Date object.
