@@ -15,6 +15,7 @@ import {
 const DatePicker = (props) => {
   const {
     date,
+    placeholder,
     config,
     format,
     isInputDisabled,
@@ -47,6 +48,10 @@ const DatePicker = (props) => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
+
+  useEffect(() => {
+    setValue(date);
+  }, [date]);
 
   /**
    * Called when input box is clicked.
@@ -124,6 +129,7 @@ const DatePicker = (props) => {
       <input
         type="text"
         aria-label="date-picker"
+        placeholder={placeholder}
         className={showCalendar ? "border-bottom-0" : "border-bottom-1"}
         value={onFormat(value)}
         onChange={handleOnInputChange}
