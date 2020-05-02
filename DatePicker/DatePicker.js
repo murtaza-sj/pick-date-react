@@ -29,9 +29,8 @@ const DatePicker = (props) => {
 
   const [showCalendar, setShowCalendar] = useState(false);
 
-  const [dateValue, setDateValue] = useState(date);
-
   const dateContainer = useRef(null);
+  const input = useRef(null);
 
   /**
    * @param {object} e - Event object, when a mousedown event is triggered.
@@ -50,7 +49,7 @@ const DatePicker = (props) => {
   }, []);
 
   useEffect(() => {
-    setValue(date);
+    date && setValue(date);
   }, [date]);
 
   /**
@@ -94,7 +93,6 @@ const DatePicker = (props) => {
       typeof handleOnChange === "function" && handleOnChange(false);
     } else {
       typeof handleOnChange === "function" && handleOnChange(date);
-      setDateValue(date);
     }
   };
 
@@ -105,8 +103,10 @@ const DatePicker = (props) => {
    */
   const changeInputValue = (date, nextOrPrevious) => {
     setValue(date);
-    setDateValue(date);
-    !nextOrPrevious && setShowCalendar(false);
+    if (!nextOrPrevious) {
+      setShowCalendar(false);
+      input.current.focus();
+    }
   };
 
   /**
@@ -127,6 +127,7 @@ const DatePicker = (props) => {
   return (
     <div id="date-picker" ref={dateContainer}>
       <input
+        ref={input}
         type="text"
         aria-label="date-picker"
         placeholder={placeholder}
@@ -138,11 +139,7 @@ const DatePicker = (props) => {
       />
       {children}
       {showCalendar && (
-        <Calendar
-          {...props}
-          date={dateValue}
-          changeInputValue={changeInputValue}
-        />
+        <Calendar {...props} date={value} changeInputValue={changeInputValue} />
       )}
     </div>
   );

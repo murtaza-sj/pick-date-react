@@ -10,6 +10,14 @@ describe("DatePicker", () => {
     expect(getByLabelText("date-picker")).toBeInTheDocument();
   });
 
+  
+  it('should still render blank input', () => {
+    const { getByLabelText } = render(
+      <DatePicker date='' handleOnChange={jest.fn()} />
+    );
+    expect(getByLabelText("date-picker")).toBeInTheDocument();    
+  })
+
   it("should render Calendar and on selection of a date it should render on input", () => {
     const { getByLabelText, getAllByText, getByText } = render(
       <DatePicker date={new Date()} handleOnChange={jest.fn()} />
@@ -18,6 +26,7 @@ describe("DatePicker", () => {
     fireEvent.click(input);
     fireEvent.mouseDown(getByText("M"));
     expect(getAllByText("S").length).toEqual(2);
+    fireEvent.click(getByText("<"));
     fireEvent.click(getByText("1"));
     expect(input.value).toContain("1");
   });
